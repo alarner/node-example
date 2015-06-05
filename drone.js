@@ -16,19 +16,19 @@ Cylon.robot({
 	work: function(my) {
 		my.drone.takeoff();
 
+		after((5).seconds(), function() {
+			my.drone.forward(0.1);
+		});
+
 		after((10).seconds(), function() {
-			my.drone.clockwise(0.1);
-		})
+			my.drone.forward(0);
+		});
 
-		after((15).seconds(), function() {
-			my.drone.clockwise(0);
-		})
-
-		after((20).seconds(), function() {
+		after((12).seconds(), function() {
 			my.drone.land();
 		});
-		
-		after((25).seconds(), function() {
+
+		after((15).seconds(), function() {
 			my.drone.stop();
 		});
 	}

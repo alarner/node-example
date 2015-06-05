@@ -15,10 +15,20 @@ Cylon.robot({
 
 	work: function(my) {
 		my.drone.takeoff();
+
 		after((10).seconds(), function() {
+			my.drone.clockwise(0.1);
+		})
+
+		after((15).seconds(), function() {
+			my.drone.clockwise(0);
+		})
+
+		after((20).seconds(), function() {
 			my.drone.land();
 		});
-		after((15).seconds(), function() {
+		
+		after((25).seconds(), function() {
 			my.drone.stop();
 		});
 	}
